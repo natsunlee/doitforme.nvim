@@ -152,7 +152,7 @@ function M.prompt(opts)
   -- Exit visual mode if we're in it
   local mode = vim.fn.mode()
   if mode == "v" or mode == "V" or mode == "\22" then
-    vim.cmd("normal! ")
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "nx", false)
   end
 
   -- Get config
